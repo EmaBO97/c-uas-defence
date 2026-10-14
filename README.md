@@ -10,7 +10,7 @@ Gioco didattico sulle **contromisure anti-drone (C-UAS)**, in italiano. Si proge
 
 ## ▶ Gioca subito
 
-**[Gioca nel browser]((https://emabo97.github.io/c-uas-defence/))**: sostituisci nell'indirizzo il tuo nome utente GitHub e il nome del repository. Per attivare il link segui i passi in [Pubblicare con GitHub Pages](#pubblicare-con-github-pages).
+**[Gioca nel browser](https://emabo97.github.io/c-uas-defence/)**: sostituisci nell'indirizzo il tuo nome utente GitHub e il nome del repository. Per attivare il link segui i passi in [Pubblicare con GitHub Pages](#pubblicare-con-github-pages).
 
 Per giocare offline scarica [`difesa-c-uas.html`](difesa-c-uas.html) e aprilo con un doppio clic in Chrome, Edge o Firefox.
 
