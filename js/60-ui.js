@@ -434,4 +434,4 @@ function frame(now) {
 resize(); addEventListener('resize', resize);
 initShop(); legend(); syncRoe(); renderAbil(); intro();
 requestAnimationFrame(frame);
-window.__g = { G, startReplay, buildWave, openCodex, closeCodex, pickWave, available, step, startWave, place, baseConfig, toSetup, visible, upgrade, useAbility, startSite, newCampaign, setRoe, setPrio, setDeny, toggleEmit, setDismiss, siteEnd, finalReport, SITES, CAT, needsAuth, perkPick, intro };
+window.__g = { G, soundPreview, startReplay, buildWave, openCodex, closeCodex, pickWave, available, step, startWave, place, baseConfig, toSetup, visible, upgrade, useAbility, startSite, newCampaign, setRoe, setPrio, setDeny, toggleEmit, setDismiss, siteEnd, finalReport, SITES, CAT, needsAuth, perkPick, intro };

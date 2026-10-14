@@ -72,7 +72,7 @@ function step(dt) {
   G.t += dt;
   for (const p of G.pending) if (!p.done && G.t >= p.t) { p.done = true; spawn(p); }
   for (const e of G.events) if (!e.done && G.t >= e.t) { e.done = true; doEvent(e); }
-  for (const p of G.planes) if (!p.done && G.t >= p.t) { p.done = true; mk('plane', 1300, CY, {}); }
+  for (const p of G.planes) if (!p.done && G.t >= p.t) { p.done = true; mk('plane', 1300, CY, {}); SND.plane(); }
   for (const a of Object.values(G.ab)) { a.cd = Math.max(0, a.cd - dt); a.on = Math.max(0, a.on - dt); }
   moveConvoys(dt);
   const wobW = WX().wob || 1;
@@ -208,7 +208,7 @@ function doEvent(e) {
     if (!n) return; G.ws.notes.add('blackout'); SND.bad(); feed(`Blackout: ${n} strutture senza corrente`, 'premi 3 per la squadra tecnica', 'bad');
   } else if (e.k === 'heli') {
     const a = rnd() * TAU, la = a + (rnd() - 0.5) * 1.2; mk('heli', Math.cos(a) * 1150, Math.sin(a) * 1150, { lx: Math.cos(la) * 420, ly: Math.sin(la) * 420 });
-    G.ws.notes.add('heli'); SND.alarm(); feed('Elisoccorso in arrivo', 'ordine: niente armi ad area finché non atterra', 'warn');
+    G.ws.notes.add('heli'); SND.heli(); feed('Elisoccorso in arrivo', 'ordine: niente armi ad area finché non atterra', 'warn');
   } else if (e.k === 'stormo') {
     const a = rnd() * TAU; for (let i = 0; i < 6; i++) mk('bird', Math.cos(a) * 520 + (rnd() - 0.5) * 80, Math.sin(a) * 520 + (rnd() - 0.5) * 80, { hd: a + PI + (rnd() - 0.5) * 0.4, flap: rnd() * 6 });
     feed('Stormo di uccelli', '6 tracce in più sul radar', 'warn');
@@ -370,7 +370,7 @@ function fire(it, o) {
     }
     if (res) G.ws.notes.add('shield');
     feed('Impulso a microonde', `${n} droni colpiti${res ? `, ${res} schermati resistono` : ''}`, n ? 'good' : res ? 'warn' : '');
-  } else if (k === 'net') { it.cd = cdOf(it); it.ammo--; G.shots.push({ k: 'net', x: it.x, y: it.y, tgt: o.id, from: it, trail: [] }); SND.launch(); }
+  } else if (k === 'net') { it.cd = cdOf(it); it.ammo--; G.shots.push({ k: 'net', x: it.x, y: it.y, tgt: o.id, from: it, trail: [] }); SND.net(); }
 }
 function effectors(dt) {
   for (const it of G.items) {
